@@ -15,4 +15,4 @@
           this.x=x;
         }
       }
-  export  enemyClass;
+  export default enemyClass;

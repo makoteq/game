@@ -1,5 +1,5 @@
-import enemyClass from './enemyClass';
-import Bullet from './bulletClass';
+import enemyClass from './eClass.js';
+import Bullet from './bClass.js';
 
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
