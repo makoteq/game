@@ -12,10 +12,10 @@ const gunH = 40;
 
 let bullets=[0,0,0,0,0];
 let enemy=[0,0,0];
-for(i=0; i<bullets.length; i++){
+for(let i=0; i<bullets.length; i++){
   bullets[i]= new Bullet(0, ch-80, 10);    
 }
-for(i=0; i<enemy.length; i++){
+for(let i=0; i<enemy.length; i++){
   enemy[i]= new enemyClass(0, 0+20, 2);   
 }
 
@@ -26,7 +26,7 @@ const leftCanvas = canvas.offsetLeft;
 canvas.addEventListener("mousemove", playerPosition);
 canvas.onclick = function () {
   
-  for(i=0; i<bullets.length; i++) {
+  for(let i=0; i<bullets.length; i++) {
     if (bullets[i].visible == false) {
       bullets[i].visible = true;
       bullets[i].x = playerX+5;
@@ -56,7 +56,7 @@ function playerPosition(e) {
   playerX = e.clientX - leftCanvas - gunW / 2; 
 }
 function strzal() {
-  for(i=0; i<bullets.length; i++) {
+  for(let i=0; i<bullets.length; i++) {
     if (bullets[i].visible==true) {
       ctx.drawImage(bullets[i].img, bullets[i].x, bullets[i].y, 30, 30);
       if (bullets[i].y <= 0) {
@@ -69,7 +69,7 @@ function strzal() {
 }
 
 function meteoAnimate() {
-  for(i=0; i<enemy.length; i++) {
+  for(let i=0; i<enemy.length; i++) {
     if (enemy[i].visible==true) {
       ctx.drawImage(enemy[i].img, enemy[i].x, enemy[i].y, 50, 50);
       if (enemy[i].y >= ch-70) {
@@ -81,7 +81,7 @@ function meteoAnimate() {
   }
 }
 function meteo(){
-  for(i=0; i<enemy.length; i++) {
+  for(let i=0; i<enemy.length; i++) {
     if (enemy[i].visible == false) {
       enemy[i].visible = true;
       enemy[i].x =  Math.floor((Math.random() * 480) + 20);
