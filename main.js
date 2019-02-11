@@ -1,4 +1,4 @@
-import {enemyClass} from './enemyClass';
+import enemyClass from './enemyClass';
 import Bullet from './bulletClass';
 
 const canvas = document.querySelector("canvas");
@@ -10,8 +10,8 @@ const ch = canvas.height;
 const gunW = 40;
 const gunH = 40;
 
-var bullets=[0,0,0,0,0];
-var enemy=[0,0,0];
+let bullets=[0,0,0,0,0];
+let enemy=[0,0,0];
 for(i=0; i<bullets.length; i++){
   bullets[i]= new Bullet(0, ch-80, 10);    
 }
@@ -54,6 +54,7 @@ function ground() {
 
 function playerPosition(e) {
   playerX = e.clientX - leftCanvas - gunW / 2; 
+}
 function strzal() {
   for(i=0; i<bullets.length; i++) {
     if (bullets[i].visible==true) {
@@ -66,6 +67,7 @@ function strzal() {
     }
   }
 }
+
 function meteoAnimate() {
   for(i=0; i<enemy.length; i++) {
     if (enemy[i].visible==true) {
