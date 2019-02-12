@@ -7,12 +7,8 @@
           this.img = new Image();
           this.img.src = "img/Asteroid.png";
         }
-      
         speedUp() {
           this.y += this.speed;
-        }
-        setX(x) {
-          this.x=x;
         }
       }
   export default enemyClass;

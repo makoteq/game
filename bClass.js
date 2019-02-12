@@ -11,9 +11,6 @@
         speedUp() {
           this.y -= this.speed;
         }
-        setX(x) {
-          this.x=x;
-        }
       }
       export default  Bullet;
                                                                                                         
