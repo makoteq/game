@@ -11,23 +11,49 @@ const gunW = 40;
 const gunH = 40;
 
 let bullets = [];
-bullets.length = 5;
+bullets.length = 4;
 let enemy = [];
 enemy.length = 4;
 for (let i = 0; i < bullets.length; i++) {
   bullets[i] = new Bullet(0, ch - 80, 10);
 }
 for (let i = 0; i < enemy.length; i++) {
-  enemy[i] = new enemyClass(0, 0 + 20, 2);
+  enemy[i] = new enemyClass(0, 0 + 20, 5);
 }
-
+/*
+więc to bardziej naprawiają media query ustawione w emach
+@makotek keydown eventListener na document i w callbacku event.key === "Enter"
+*/
 
 let playerX = 0;
-
 const leftCanvas = canvas.offsetLeft;
-canvas.addEventListener("mousemove", playerPosition);
-canvas.onclick = function () {
+window.onload =()=>{
 
+  $(document).keypress(function (e) {
+    if (e.which == 13 || event.keyCode == 13) {
+      click()
+      setInterval(meteo, 800);
+      setInterval(game, 1000 / 60);
+    }
+  });
+/*start screen*/
+  ctx.fillStyle = "black";
+  ctx.fillRect(0, 0, cw, ch);
+  ctx.fillStyle = "green";
+  ctx.fillRect(0, ch - 20, cw, ch);
+  ctx.fillStyle = "red";
+  ctx.fillRect(cw/2-20, ch - 60, gunW, gunH);
+  ctx.font = "50px Helvetica";
+  ctx.fillStyle = "white";
+  ctx.textAlign = "center";
+  ctx.fillText("Hello", cw/2, ch/2);
+  ctx.font = "25px Helvetica";
+  ctx.fillText("click enter to start", cw/2, ch/2+30);
+  
+}
+canvas.addEventListener("mousemove", playerPosition);
+function click(){
+canvas.onclick = ()=> {
   for (let i = 0; i < bullets.length; i++) {
     if (bullets[i].visible == false) {
       bullets[i].visible = true;
@@ -35,8 +61,9 @@ canvas.onclick = function () {
       break;
     }
   }
+}
+}
 
-};
 
 function table() {
   ctx.fillStyle = "black";
@@ -66,8 +93,8 @@ function strzal() {
         if (bullets[i].y <= 0) {
           bullets[i].visible = false;
           bullets[i].y = ch - 80;
-        } else if ((enemy[x].y >= bullets[i].y) && ((enemy[x].x > bullets[i].x - 25) && (enemy[x].x < bullets[i].x + 25))) {
-          console.log("trafienie");
+        } else if ((enemy[x].y >= bullets[i].y) && ((enemy[x].x >= bullets[i].x -45) && (enemy[x].x <= bullets[i].x + 45))) {
+          console.log("trafienie:"+bullets[i].x+","+enemy[x].x);
           bullets[i].visible = false;
           enemy[x].visible = false;
           bullets[i].y = ch - 80;
@@ -110,6 +137,3 @@ function game() {
   gun();
   strzal();
 }
-
-setInterval(meteo, 800);
-setInterval(game, 1000 / 60);
