@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
   <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
   <title>Defender</title>
   <style>
@@ -16,20 +15,47 @@
       margin-top:100px;
     }
     body{
+      font-family:Helvetica;
+      cursor: default;
       margin:0;
-      background-color: rgb(63, 65, 66)
+      background-image:url('img/back.png')/*image from www.subtlepatterns.com  by Federica Pelzel*/
     }
-
+    #contener{
+      font-size:2em;
+      width:330px;
+      top:450px;
+      color:pink;
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+    }
+    .button{
+      font-size:20px;
+      font-family:Helvetica;
+      background-color: black;
+      color:white;
+      float: left;
+      width: 100px;
+      margin:5px;
+      outline: none;
+      cursor:pointer;
+    }
   </style>
    <script type="module" src="main.js"></script>
 </head>
 
 <body id="body">
-  <canvas>
+  <canvas id="canvas">
     <p>You're browser does not support the required functionality to play this game.</p>
     <p>Please update to a modern browser such as <a href="www.google.com/chrome/‎">Google Chrome</a> to play.</p>
   </canvas>
-  
+  <div id="contener">
+  <button id="easy" class="button">Easy</button>
+  <button id="medium" class="button">Medium</button>
+  <button  id="hard" class="button">Hard</button>
+  </div>
 </body>
 
 </html>
