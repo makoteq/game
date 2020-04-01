@@ -1,8 +1,9 @@
  canvas {
-	border: 3px solid grey;
+	border: 3px solid black;
     display: block;
     margin: 0 auto;
     margin-top:100px;
+    cursor: pointer;
    }
 body{
 	font-family:Helvetica;
