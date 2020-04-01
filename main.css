@@ -10,15 +10,3 @@ body{
 	margin:0;
 	background-image:url('img/back.png')/*image from www.subtlepatterns.com  by Federica Pelzel*/
     }
-#hider
-{
-	background-color: pink;
-	width: 160px;
-	height: 400px;
-	position: fixed;
-	top: 202px;
-	right: 750px;
-	border: 1px solid #fff;
-	border-bottom: 0;
-	z-index:100;
-}
