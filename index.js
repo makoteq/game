@@ -34,19 +34,14 @@ function crane(){
   crane.src = './img/crane.png';
   ctx.drawImage(crane, 0, 0);
 }
-function line(){
-  ctx.fillStyle = "blue";
-  ctx.fillRect(cw/2+cw/4,  ch - 520, 5, lineh);
-}
 function build(){
   let b = new Image();
   b.src = './img/house2.png';
-  ctx.drawImage(b, cw/2,  ch - buildh);
+  ctx.drawImage(b, cw/2,  ch - 555);
 }
 function game() {
   table();
   ground();
-  line()
  crane();
  build();
 }
