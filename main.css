@@ -1,11 +1,12 @@
 canvas {
-	border: 3px solid grey;
+	border: 5px solid red;
+	border-radius: 30px;
     display: block;
-    margin-left: 10%;
-    margin-top:100px;
-	margin-right: 50px;
 	background-image: url("img/background.png");
 	background-size: cover;
+	-webkit-box-shadow: -10px 10px 46px -16px rgba(102,102,102,1);
+	-moz-box-shadow: -10px 10px 46px -16px rgba(102,102,102,1);
+	box-shadow: -10px 10px 46px -16px rgba(102,102,102,1);
    }
 body{
 	font-family:Helvetica;
@@ -13,60 +14,47 @@ body{
 	margin:0;
 	background-image:url('img/back.png')/*image from www.subtlepatterns.com  by Federica Pelzel*/
     }
-#hider
+.container
 {
-	background-color: black;
-	width: 160px;
-	height: 400px;
-	position: fixed;
-	top: 202px;
-	right: 750px;
-	border: 1px solid #fff;
-	border-bottom: 0;
-	z-index:100;
+	margin-top: 10%;
 }
-.menu
+.upgrademenu
 {
 	display: inline-block;
-	border: 3px solid grey;
-    margin-top:90px;
+	border: 5px solid red;
+	border-radius: 30px;
+	text-align: center;
+	padding: 15px 0;
 }
-#upgrades
+.upgrade
 {
 	background-color: white;
-	display: inline-block;
-	text-align: left;
-	background-color: yellow;
-}
-#history
-{
-	background-color: pink;
-	display: inline-block;
-}
-.upgradebt
-{
-	color: white;
-	padding: 10px;
-	background-color: #01af01;
-	border: 2px solid white;
-	font-size: 1.5em;
-	border-radius: 10px;
-	text-shadow:
-	1px 1px #009900,
-	-1px 1px #009900,
-	1px -1px #009900,
-	-1px -1px #009900;
+	border-radius: 20px;
 	text-align: center;
+	height: 95%;
+	padding: 10px;
 }
-img.upgimg
+bold
 {
-	transition: opacity ease-in-out 0.5s;
+	font-weight: 700;
 }
-img.upgimg:hover
+.price
 {
-	opacity: 0.8
+	padding: 5px;
+	border: 2px solid #cc0000;
+	border-radius: 15px;
+	margin: auto;
+	transition: 0.4s ease all;
 }
-.upgradewindow
+.sth
 {
-	border-bottom: 1px dashed #333;
+	background-color: #fcd600;
+	border-radius: 30px;
+	text-align: center;
+	padding: 15px 0;
+	margin-top: 20px;
+}
+.price:hover
+{
+	background-color: #aaa;
 }
