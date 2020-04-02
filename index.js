@@ -17,20 +17,22 @@ let data = [
     "height":"768",
     "frames":"33"
   }
-]
+];
+let dirt ="./img/dirt.png"
+document.getElementById("canvas").addEventListener('click',()=>{
+  click();
+})
 let b = new Image();
 b.src = data[0].img+frame+".png";
 let crane = new Image();
 crane.src = './img/crane.png';
 setInterval(game, 1000 / 60);
-let dirt ="./img/dirt.png"
-document.getElementById("canvas").addEventListener('click',()=>{
-  click();
-})
+  var audio = new Audio();
+audio.src = "./click.mp3";
 window.onload=()=>{
-  console.log(b.height/2);
 }
 function click(){
+  document.getElementById("myAudio").play();
   frame++;
   console.log(buildh);
   b.src = data[0].img+frame+".png";
