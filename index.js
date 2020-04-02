@@ -6,18 +6,22 @@ const cw = canvas.width;
 const ch = canvas.height;
 let lineh =420;
 let buildh=100;
-let width = 392;
-let height = 520
+let width = 512;
+let height = 512
+let frame = 1;
 let data = [
   {
     "name":"Pałac kultury",
-    "img":"./img/PK.png"
+    "img":"./img/blok/BP ",
+    "width":"768",
+    "height":"768",
+    "frames":"33"
   }
 ]
 let b = new Image();
-b.src = './img/PK.png';
+b.src = data[0].img+frame+".png";
 let crane = new Image();
-crane.src = './img/PK2.png';
+crane.src = './img/crane.png';
 setInterval(game, 1000 / 60);
 let dirt ="./img/dirt.png"
 document.getElementById("canvas").addEventListener('click',()=>{
@@ -27,20 +31,15 @@ window.onload=()=>{
   console.log(b.height/2);
 }
 function click(){
-  crane.width=crane.width+5
-  crane.height=crane.height+5
-  setTimeout(function(){  crane.width=crane.width-5
-    crane.height=crane.height-5 }, 50);
-  console.log(buildh)
-  if(buildh!=b.height/2+100){
+  frame++;
+  console.log(buildh);
+  b.src = data[0].img+frame+".png";
+  console.log(data[0].img+frame+".png")
+ /* if(buildh!=b.height/2+100){
     buildh=buildh+5;
   }else{
     console.log("next")
-  }
-}
-function table(){
-  ctx.fillStyle = "white";
-  ctx.fillRect(0,0, cw, ch);
+  }*/
 }
 function ground() {
   let img = new Image();
@@ -52,17 +51,11 @@ function ground() {
 function cranefunction(){
   ctx.drawImage(crane, 50, 0,crane.width-220,crane.height-220);
 }
-function line(){
-  ctx.fillStyle = "black";
-  ctx.fillRect(cw/2+cw/4,  ch - 520, 5, lineh);
-}
 function build(width,height){
-  ctx.drawImage(b, cw/2+cw/4-width/4,  ch - buildh,width/2,height/2);
+  ctx.drawImage(b, cw/2,  ch - 100-height/4,width/4,height/4,);
 }
 function game() {
-  table();
-  line();
-  build(width,height);
+  build(data[0].width,data[0].height);
   ground();
   cranefunction();
  
