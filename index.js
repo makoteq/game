@@ -11,8 +11,14 @@ let worker = {
   count:0,
   prize:9
 }
+let builder = {
+  count:0,
+  prize:32
+}
 let money = 0;
 let frame = 1;
+let framefraction=1;
+let seconds="0";
 let data = [
   {
     "name":"Pałac kultury",
@@ -69,6 +75,12 @@ function score(){
       ctx.fillStyle = "white";
       ctx.font = "30px Helvetica";
       ctx.fillText(worker.count, cw/2+100, ch-55);
+	let builderimg = new Image();
+    builderimg.src ="./img/fachowiec2.png";
+      ctx.drawImage(builderimg, cw/3+260, ch-80,30,30);
+      ctx.fillStyle = "white";
+      ctx.font = "30px Helvetica";
+      ctx.fillText(builder.count, cw/2+220, ch-55);
 }
 function click(){
   sound(2);
@@ -78,7 +90,8 @@ function click(){
     instance=Math.floor((Math.random() * data.length))
   }else{
     money++;
-    frame++;
+    framefraction++;
+	if (framefraction==4) {frame++; framefraction=0;}
   }
   b.src = data[instance].img+frame+".png";
   console.log(data[instance].img+frame+".png")
@@ -98,11 +111,31 @@ function update(arg){
     worker.prize=worker.prize*2;
     worker.count++;
   } break;
+  
   case 2:
-    
-  break;
+  console.log(money);
+    if(money<builder.prize){
+    break;
+  }else{
+    console.log(builder.prize);
+	count();
+    money=money-builder.prize;
+    builder.prize=builder.prize*3;
+    builder.count++;
+  } break;
 
 	}
+}
+function count()
+{
+	seconds++;
+	if (seconds==(8/builder.count))
+	{
+		frame++;
+		seconds=0;
+		b.src = data[instance].img+frame+".png";
+	}
+	setTimeout("count()", 1000);
 }
 function table(){
   let back = new Image();
@@ -136,6 +169,7 @@ function sound(type)
 }
 function game() {
   document.getElementById("workerbtn").innerText=worker.prize;
+  document.getElementById("workerbtn2").innerText=builder.prize;
     table();
     build(data[instance].width,data[instance].height);
   
