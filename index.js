@@ -16,17 +16,30 @@ let frame = 1;
 let data = [
   {
     "name":"Pałac kultury",
+    "description":"",
+    "legendary":"1",
     "img":"./img/blok/BP ",
-    "width":"512",
-    "height":"512",
+    "width":"256",
+    "height":"256",
     "frames":"32"
   },
   {
     "name":"Pałac kultury",
     "img":"./img/fabryka/F",
+    "description":"",
+    "legendary":"0",
     "width":"384",
     "height":"264",
     "frames":"33"
+  },
+  {
+    "name":"Katedra",
+    "img":"./img/katedra/K",
+    "description":"",
+    "legendary":"1",
+    "width":"264",
+    "height":"384",
+    "frames":"51"
   }
 ];
 let instance =Math.floor((Math.random() * data.length));
@@ -46,10 +59,10 @@ window.onload=()=>{
 function score(){
     let moneyimg = new Image();
     moneyimg.src ="./img/moneta.png";
-      ctx.drawImage(moneyimg, cw/3+40, ch-80,30,30);
+      ctx.drawImage(moneyimg, cw/3+20, ch-80,30,30);
       ctx.fillStyle = "#fcd600";
       ctx.font = "30px Helvetica";
-      ctx.fillText(money, cw/2, ch-55);
+      ctx.fillText(money, cw/2-20, ch-55);
     let workerimg = new Image();
     workerimg.src ="./img/fachowiec1.png";
       ctx.drawImage(workerimg, cw/3+140, ch-80,30,30);
@@ -125,7 +138,7 @@ function game() {
   document.getElementById("workerbtn").innerText=worker.prize;
     table();
     build(data[instance].width,data[instance].height);
-    ground();
+  
     cranefunction();
     score()
 }
