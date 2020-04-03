@@ -1,42 +1,33 @@
 canvas {
-	border: 5px solid red;
+	cursor: pointer;
 	border-radius: 30px;
     display: block;
-	background-image: url("img/background.png");
 	background-size: cover;
 	-webkit-box-shadow: -10px 10px 46px -16px rgba(102,102,102,1);
 	-moz-box-shadow: -10px 10px 46px -16px rgba(102,102,102,1);
 	box-shadow: -10px 10px 46px -16px rgba(102,102,102,1);
+	margin:0 auto;
    }
 body{
 	font-family:Helvetica;
 	cursor: default;
 	margin:0;
 	background-image:url('img/back.png')/*image from www.subtlepatterns.com  by Federica Pelzel*/
-    }
+	}
+	html{
+		width: 100vw !important;
+	}
 .container
 {
+	margin:0 auto;
 	margin-top: 10%;
 }
 .upgrademenu
 {
 	display: inline-block;
-	border: 5px solid red;
 	border-radius: 30px;
 	text-align: center;
-	padding: 15px 0;
-}
-.upgrade
-{
-	background-color: white;
-	border-radius: 20px;
-	text-align: center;
-	height: 95%;
-	padding: 10px;
-}
-bold
-{
-	font-weight: 700;
+	height: 350px;
 }
 .price
 {
@@ -46,15 +37,12 @@ bold
 	margin: auto;
 	transition: 0.4s ease all;
 }
-.sth
-{
-	background-color: #fcd600;
-	border-radius: 30px;
-	text-align: center;
-	padding: 15px 0;
-	margin-top: 20px;
-}
+
 .price:hover
 {
 	background-color: #aaa;
+}
+.col{
+	padding: 0 !important;
+	margin: 0 !important;
 }
