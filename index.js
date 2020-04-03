@@ -32,8 +32,7 @@ audio.src = "./click.mp3";
 window.onload=()=>{
 }
 function click(){
-  document.getElementById("myAudio").play();
-  frame++;
+   frame=frame+0.25;
   console.log(buildh);
   b.src = data[0].img+frame+".png";
   console.log(data[0].img+frame+".png")
@@ -61,4 +60,16 @@ function game() {
   ground();
   cranefunction();
  
+}
+function sound(type)
+{
+	switch(type)
+	{
+		case 1: 
+		document.getElementById("myAudio").currentTime=0;
+		document.getElementById("myAudio").play(); break;
+		case 2: 
+		document.getElementById("btnAudio").currentTime=0;
+		document.getElementById("btnAudio").play(); break;
+	}
 }

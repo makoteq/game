@@ -13,12 +13,12 @@
 </head>
 
 <body id="body">
-  <audio id="myAudio">
-		<source src="./click.mp3" type="audio/mpeg">
+  <audio id="myAudio" src="./click.mp3">
 		Your browser does not support the audio element.
 	  </audio>
+	  <audio id="btnAudio" src="btn.mp3"></audio>
 	<div class="container col-xs-12">
-		<div class="float-left col-sm-6">
+		<div class="float-left col-sm-6" onclick="sound(1);">
 		  <canvas id="canvas">
 			<p>Your browser does not support the required functionality to play this game.</p>
 			<p>Please update to a modern browser such as <a href="www.google.com/chrome/‎">Google Chrome</a> to play.</p>
@@ -27,20 +27,20 @@
 	  <div class="menu col-sm-6 float-right p-blank-10">
 			<div class="upgrademenu w-100">
 				<div class="upgrade col-sm-5 d-inline-block">
-					<bold>Slavic bitch</bold>
+					<bold>Slave</bold>
 					</br>
 					<img src="img/fachowiec1.png" width="150"  style="margin: 20px;"/>
-					<button class="col-sm-10 price">
-						<img src="img/moneta.png" style="display: inline-block" width="20" /> 612
+					<button onclick="sound(2);" class="col-sm-10 price">
+						<img src="img/moneta.png" style="display: inline-block" width="20" /> 666
 					</button>
 				</div>
 				<div class="col-sm-1 d-inline-block"></div>
 				<div class="upgrade col-sm-5 d-inline-block">
-					<bold>Uncle Dima</bold>
+					<bold>John Paul II</bold>
 					</br>
-					<img src="img/fachowiec1.png" width="150" style="margin: 20px;" />
-					<button class="col-sm-10 price">
-						<img src="img/moneta.png" style="display: inline-block" width="20" /> 1024
+					<img src="img/JP2.jpg" width="150" style="margin: 20px;" />
+					<button onclick="sound(2);" class="col-sm-10 price">
+						<img src="img/moneta.png" style="display: inline-block" width="20" /> 2137
 					</button>
 				</div>
 			</div>

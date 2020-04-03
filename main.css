@@ -7,6 +7,7 @@ canvas {
 	-webkit-box-shadow: -10px 10px 46px -16px rgba(102,102,102,1);
 	-moz-box-shadow: -10px 10px 46px -16px rgba(102,102,102,1);
 	box-shadow: -10px 10px 46px -16px rgba(102,102,102,1);
+	margin-bottom: 20px;
    }
 body{
 	font-family:Helvetica;
@@ -53,6 +54,7 @@ bold
 	text-align: center;
 	padding: 15px 0;
 	margin-top: 20px;
+	border: 5px solid red;
 }
 .price:hover
 {
