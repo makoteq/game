@@ -15,6 +15,14 @@ let builder = {
   count:0,
   prize:32
 }
+let clicker = {
+  count:0,
+  prize:10
+}
+let priest = {
+  count:0,
+  prize:100
+}
 let money = 0;
 let frame = 1;
 let framefraction=1;
@@ -65,22 +73,34 @@ window.onload=()=>{
 function score(){
     let moneyimg = new Image();
     moneyimg.src ="./img/moneta.png";
-      ctx.drawImage(moneyimg, cw/3+20, ch-80,30,30);
+      ctx.drawImage(moneyimg, cw/3-150, ch-80,30,30);
       ctx.fillStyle = "#fcd600";
       ctx.font = "30px Helvetica";
-      ctx.fillText(money, cw/2-20, ch-55);
+      ctx.fillText(money, cw/2-190, ch-55);
     let workerimg = new Image();
     workerimg.src ="./img/fachowiec1.png";
-      ctx.drawImage(workerimg, cw/3+140, ch-80,30,30);
+      ctx.drawImage(workerimg, cw/3-50, ch-80,30,30);
       ctx.fillStyle = "white";
       ctx.font = "30px Helvetica";
-      ctx.fillText(worker.count, cw/2+100, ch-55);
+      ctx.fillText(worker.count, cw/2-90, ch-55);
 	let builderimg = new Image();
     builderimg.src ="./img/fachowiec2.png";
-      ctx.drawImage(builderimg, cw/3+260, ch-80,30,30);
+      ctx.drawImage(builderimg, cw/3+50, ch-80,30,30);
       ctx.fillStyle = "white";
       ctx.font = "30px Helvetica";
-      ctx.fillText(builder.count, cw/2+220, ch-55);
+      ctx.fillText(builder.count, cw/2+10, ch-55);
+	 let clickerimg = new Image();
+    clickerimg.src ="./img/Chydaulik3.png";
+      ctx.drawImage(clickerimg, cw/3+150, ch-80,30,30);
+      ctx.fillStyle = "white";
+      ctx.font = "30px Helvetica";
+      ctx.fillText(clicker.count, cw/2+110, ch-55);
+	  let priestimg = new Image();
+    priestimg.src ="img/Duchowny1.png";
+      ctx.drawImage(priestimg, cw/3+250, ch-80,30,30);
+      ctx.fillStyle = "white";
+      ctx.font = "30px Helvetica";
+      ctx.fillText(priest.count, cw/2+210, ch-55);
 }
 function click(){
   sound(2);
@@ -89,7 +109,7 @@ function click(){
     frame=1;
     instance=Math.floor((Math.random() * data.length))
   }else{
-    money++;
+    money=money+1+clicker.count;
     framefraction++;
 	if (framefraction==4) {frame++; framefraction=0;}
   }
@@ -104,7 +124,7 @@ function update(arg){
     break;
   }else{
     if(interval!=1){
-      setInterval(()=>{money=money+worker.count}, 1000 )
+      setInterval(()=>{money=money+worker.count}, 1000)
       interval++;
     }
     money=money-worker.prize;
@@ -112,24 +132,47 @@ function update(arg){
     worker.count++;
   } break;
   
-  case 2:
-  console.log(money);
+		case 2:
+	console.log(money);
     if(money<builder.prize){
     break;
   }else{
     console.log(builder.prize);
-	count();
+	if(builder.count==0){count();}
     money=money-builder.prize;
-    builder.prize=builder.prize*3;
+    builder.prize=builder.prize*2;
     builder.count++;
+	seconds=0;
   } break;
 
+		case 3:
+	if(money<clicker.prize){
+    break;
+	}
+	else{
+	money=money-clicker.prize;
+    clicker.prize=clicker.prize*3;
+    clicker.count++;
+	} 
+	break;
+	case 4:
+	if(money<priest.prize){
+    break;
+	}
+	else{
+	money=money-priest.prize;
+	money=money*2; score();
+    priest.prize=priest.prize*4;
+    priest.count++;
+	} 
+	break;
 	}
 }
 function count()
 {
 	seconds++;
-	if (seconds==(8/builder.count))
+	if ((Math.round(10/builder.count))<1) {seconds=0;}
+	if (seconds==(Math.round(10/builder.count)))
 	{
 		frame++;
 		seconds=0;
@@ -170,6 +213,8 @@ function sound(type)
 function game() {
   document.getElementById("workerbtn").innerText=worker.prize;
   document.getElementById("workerbtn2").innerText=builder.prize;
+  document.getElementById("workerbtn3").innerText=clicker.prize;
+  document.getElementById("workerbtn4").innerText=priest.prize;
     table();
     build(data[instance].width,data[instance].height);
   
