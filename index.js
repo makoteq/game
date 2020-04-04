@@ -23,6 +23,7 @@ let priest = {
   count:0,
   prize:100
 }
+let history =[];
 let money = 0;
 let frame = 1;
 let framefraction=1;
@@ -131,6 +132,9 @@ function click() {
   sound(2);
   console.log(instance);
   if (data[instance].frames == frame) {
+    if(data[instance].legendary==1){
+      history.push(data[instance].name)
+    }
     frame = 1;
     instance = Math.floor(Math.random() * data.length);
   } else {
