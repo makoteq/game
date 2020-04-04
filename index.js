@@ -55,7 +55,11 @@ document.getElementById("canvas").addEventListener("click", () => {
 });
 setInterval(game, 1000 / 60);
 window.onload=()=>{
-  console.log(loader.loadImage("./img/crane.png"));
+  for (let i = 0; i < data.length; i++) {
+    for (let x = 1; x < data[i].frames; x++) {
+      loader.loadImage(data[i].img+x+".png")
+    }
+  }
   worker.count=0;
   money=0;
 
