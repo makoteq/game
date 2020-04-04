@@ -30,16 +30,43 @@ let framefraction=1;
 let seconds="0";
 let data = [
   {
-    name: "Pałac kultury",
+    name: "Blok pierwszy",
+	img: "./img/blok/BP",
     description: "",
-    legendary: "1",
-    img: "./img/blok/BP ",
+    legendary: "0",
     width: "256",
     height: "256",
     frames: "32",
   },
   {
-    name: "Pałac kultury",
+    name: "Blok drugi",
+	img: "./img/blok2/B",
+    description: "",
+    legendary: "0",
+    width: "144",
+    height: "256",
+    frames: "32",
+  },
+  {
+    name: "Blok trzeci",
+	img: "./img/blok3/BW",
+    description: "",
+    legendary: "0",
+    width: "144",
+    height: "256",
+    frames: "32",
+  },
+  {
+    name: "Blok czwarty",
+	img: "./img/blok4/BZ",
+    description: "",
+    legendary: "0",
+    width: "144",
+    height: "256",
+    frames: "32",
+  },
+  {
+    name: "Fabryka",
     img: "./img/fabryka/F",
     description: "",
     legendary: "0",
@@ -48,13 +75,49 @@ let data = [
     frames: "33",
   },
   {
-    name: "Katedra",
+    name: "Katedra Św. Michała Archanioła",
     img: "./img/katedra/K",
     description: "",
     legendary: "1",
     width: "264",
     height: "384",
     frames: "51",
+  },
+  {
+    name: "Pałac Jana 3 Sobieskiego",
+    img: "./img/PalacJ3S/PK",
+    description: "",
+    legendary: "1",
+    width: "380",
+    height: "142",
+    frames: "33",
+  },
+  {
+    name: "Pałac kultury",
+    img: "./img/PalacKult/PK",
+    description: "",
+    legendary: "1",
+    width: "392",
+    height: "504",
+    frames: "63",
+  },
+  {
+    name: "Pałac Królewski",
+    img: "./img/PalacKr/PK",
+    description: "",
+    legendary: "1",
+    width: "368",
+    height: "260",
+    frames: "65",
+  },
+  {
+    name: "Pałac Łazienkowski",
+    img: "./img/PalacLaz/P",
+    description: "",
+    legendary: "1",
+    width: "320",
+    height: "132",
+    frames: "33",
   },
 ];
 let instance = Math.floor(Math.random() * data.length);
@@ -104,13 +167,13 @@ function score(){
     ctx.font = "30px Helvetica";
     ctx.fillText(money, cw/2-190, ch-55);
   let workerimg = new Image();
-  workerimg.src ="./img/fachowiec1.png";
+  workerimg.src ="./img/fachowiec2.png";
     ctx.drawImage(workerimg, cw/3-50, ch-80,30,30);
     ctx.fillStyle = "white";
     ctx.font = "30px Helvetica";
     ctx.fillText(worker.count, cw/2-90, ch-55);
 let builderimg = new Image();
-  builderimg.src ="./img/fachowiec2.png";
+  builderimg.src ="./img/fachowiec1.png";
     ctx.drawImage(builderimg, cw/3+50, ch-80,30,30);
     ctx.fillStyle = "white";
     ctx.font = "30px Helvetica";
