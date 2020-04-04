@@ -46,3 +46,9 @@ body{
 	padding: 0 !important;
 	margin: 0 !important;
 }
+#loader {
+text-align: center;
+  }
+#con{
+	display: none;
+}  

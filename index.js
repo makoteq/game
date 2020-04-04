@@ -8,12 +8,17 @@ let lineh = 420;
 let buildh = 100;
 let interval = 0;
 let worker = {
-  count: 0,
-  prize: 9,
-};
-
+  count:0,
+  prize:9
+}
+let builder = {
+  count:0,
+  prize:32
+}
 let money = 0;
 let frame = 1;
+let framefraction=1;
+let seconds="0";
 let data = [
   {
     name: "Pałac kultury",
@@ -48,28 +53,54 @@ let dirt = "./img/dirt.png";
 document.getElementById("canvas").addEventListener("click", () => {
   click();
 });
-let b = new Image();
-b.src = data[instance].img + frame + ".png";
-let crane = new Image();
-crane.src = "./img/crane.png";
 setInterval(game, 1000 / 60);
-window.onload = () => {
-  worker.count = 0;
-  money = 0;
-};
-function score() {
-  let moneyimg = new Image();
-  moneyimg.src = "./img/moneta.png";
-  ctx.drawImage(moneyimg, cw / 3 + 20, ch - 80, 30, 30);
-  ctx.fillStyle = "#fcd600";
-  ctx.font = "30px Helvetica";
-  ctx.fillText(money, cw / 2 - 20, ch - 55);
-  let workerimg = new Image();
-  workerimg.src = "./img/fachowiec1.png";
-  ctx.drawImage(workerimg, cw / 3 + 140, ch - 80, 30, 30);
-  ctx.fillStyle = "white";
-  ctx.font = "30px Helvetica";
-  ctx.fillText(worker.count, cw / 2 + 100, ch - 55);
+window.onload=()=>{
+  console.log(loader.loadImage("./img/crane.png"));
+  worker.count=0;
+  money=0;
+
+} 
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("con").style.display = "block";
+}
+let loader={
+  loadedCount:0,
+  totalCount:1,
+loadImage:(url)=>{
+  loader.loadedCount++;
+  let img = new Image();   // Create new img element
+  img.addEventListener('load', function() {
+    // execute drawImage statements here
+  }, false);
+  img.src = url; // Set source path
+  if( this.loadedCount == this.totalCount){
+    showPage();
+  }
+  return img;
+}
+}
+loader.loadImage(data[instance].img + frame + ".png");
+loader.loadImage("./img/crane.png");
+function score(){
+    let moneyimg = new Image();
+    moneyimg.src ="./img/moneta.png";
+      ctx.drawImage(moneyimg, cw/3+20, ch-80,30,30);
+      ctx.fillStyle = "#fcd600";
+      ctx.font = "30px Helvetica";
+      ctx.fillText(money, cw/2-20, ch-55);
+    let workerimg = new Image();
+    workerimg.src ="./img/fachowiec1.png";
+      ctx.drawImage(workerimg, cw/3+140, ch-80,30,30);
+      ctx.fillStyle = "white";
+      ctx.font = "30px Helvetica";
+      ctx.fillText(worker.count, cw/2+100, ch-55);
+	let builderimg = new Image();
+    builderimg.src ="./img/fachowiec2.png";
+      ctx.drawImage(builderimg, cw/3+260, ch-80,30,30);
+      ctx.fillStyle = "white";
+      ctx.font = "30px Helvetica";
+      ctx.fillText(builder.count, cw/2+220, ch-55);
 }
 function click() {
   sound(2);
@@ -79,33 +110,55 @@ function click() {
     instance = Math.floor(Math.random() * data.length);
   } else {
     money++;
+    framefraction++;
+	if (framefraction==3) {frame++; framefraction=0;}
+  }
+  loader.loadImage(data[instance].img + frame + ".png");
+}
+function update(arg){
+  switch(arg)
+	{
+		case 1: 
+	if(money<worker.prize){
+    break;
+  }else{
+    if(interval!=1){
+      setInterval(()=>{money=money+worker.count}, 1000 )
+      interval++;
+    }
+    money=money-worker.prize;
+    worker.prize=worker.prize*2;
+    worker.count++;
+  } break;
+  
+  case 2:
+  console.log(money);
+    if(money<builder.prize){
+    break;
+  }else{
+    console.log(builder.prize);
+	count();
+    money=money-builder.prize;
+    builder.prize=builder.prize*2;
+    builder.count++;
+  } break;
+
+	}
+}
+function count()
+{
+	seconds++;
+	if (seconds==(8/builder.count))
+	{
+    if (data[instance].frames > frame) {
     frame++;
-  }
-  b.src = data[instance].img + frame + ".png";
-  console.log(data[instance].img + frame + ".png");
+    }
+		seconds=0;
+		b.src = data[instance].img+frame+".png";
+	}
+	setTimeout("count()", 1000);
 }
-function update(arg) {
-  switch (arg) {
-    case 1:
-      if (money < worker.prize) {
-        break;
-      } else {
-        if (interval != 1) {
-          setInterval(() => {
-            money = money + worker.count;
-          }, 1000);
-          interval++;
-        }
-        money = money - worker.prize;
-        worker.prize = worker.prize * 2;
-        worker.count++;
-      }
-      break;
-    case 2:
-      break;
-  }
-}
-function table() {
+function table(){
   let back = new Image();
   back.src = "./img/background.png";
   ctx.drawImage(back, 0, 0, cw, ch);
@@ -118,10 +171,10 @@ function ground() {
   ctx.fillRect(0, ch - 100, cw, ch);
 }
 function cranefunction() {
-  ctx.drawImage(crane, 50, 0, crane.width - 220, crane.height - 220);
+  ctx.drawImage(loader.loadImage("./img/crane.png"), 50, 0, loader.loadImage("./img/crane.png").width - 220, loader.loadImage("./img/crane.png").height - 220);
 }
 function build(width, height) {
-  ctx.drawImage(b, cw / 2, ch - 100 - height / 2, width / 2, height / 2);
+  ctx.drawImage(loader.loadImage(data[instance].img + frame + ".png"), cw / 2, ch - 100 - height / 2, width / 2, height / 2);
 }
 function sound(type) {
   switch (type) {
@@ -136,10 +189,11 @@ function sound(type) {
   }
 }
 function game() {
-  document.getElementById("workerbtn").innerText = worker.prize;
-  table();
-  build(data[instance].width, data[instance].height);
-
-  cranefunction();
-  score();
+  document.getElementById("workerbtn").innerText=worker.prize;
+  document.getElementById("workerbtn2").innerText=builder.prize;
+    table();
+    build(data[instance].width,data[instance].height);
+  
+    cranefunction();
+    score()
 }
