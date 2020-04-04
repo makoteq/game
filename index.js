@@ -58,6 +58,7 @@ window.onload=()=>{
   for (let i = 0; i < data.length; i++) {
     for (let x = 1; x < data[i].frames; x++) {
       loader.loadImage(data[i].img+x+".png")
+      console.log(loader.loadedCount);
     }
   }
   worker.count=0;
@@ -70,7 +71,7 @@ function showPage() {
 }
 let loader={
   loadedCount:0,
-  totalCount:1,
+  totalCount:123,
 loadImage:(url)=>{
   loader.loadedCount++;
   let img = new Image();   // Create new img element
@@ -78,7 +79,7 @@ loadImage:(url)=>{
     // execute drawImage statements here
   }, false);
   img.src = url; // Set source path
-  if( this.loadedCount == this.totalCount){
+  if( loader.loadedCount == loader.totalCount){
     showPage();
   }
   return img;
