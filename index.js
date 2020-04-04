@@ -83,21 +83,15 @@ loadImage:(url)=>{
 loader.loadImage(data[instance].img + frame + ".png");
 loader.loadImage("./img/crane.png");
 function score(){
-    let moneyimg = new Image();
-    moneyimg.src ="./img/moneta.png";
-      ctx.drawImage(moneyimg, cw/3+20, ch-80,30,30);
+      ctx.drawImage(loader.loadImage("./img/moneta.png"), cw/3+20, ch-80,30,30);
       ctx.fillStyle = "#fcd600";
       ctx.font = "30px Helvetica";
       ctx.fillText(money, cw/2-20, ch-55);
-    let workerimg = new Image();
-    workerimg.src ="./img/fachowiec1.png";
-      ctx.drawImage(workerimg, cw/3+140, ch-80,30,30);
+      ctx.drawImage(loader.loadImage("./img/fachowiec1.png"), cw/3+140, ch-80,30,30);
       ctx.fillStyle = "white";
       ctx.font = "30px Helvetica";
       ctx.fillText(worker.count, cw/2+100, ch-55);
-	let builderimg = new Image();
-    builderimg.src ="./img/fachowiec2.png";
-      ctx.drawImage(builderimg, cw/3+260, ch-80,30,30);
+      ctx.drawImage(loader.loadImage("./img/fachowiec2.png"), cw/3+260, ch-80,30,30);
       ctx.fillStyle = "white";
       ctx.font = "30px Helvetica";
       ctx.fillText(builder.count, cw/2+220, ch-55);
@@ -159,17 +153,16 @@ function count()
 	setTimeout("count()", 1000);
 }
 function table(){
-  let back = new Image();
-  back.src = "./img/background.png";
-  ctx.drawImage(back, 0, 0, cw, ch);
+  ctx.drawImage((loader.loadImage("./img/background.png"), 0, 0, cw, ch);
 }
-function ground() {
+
+/*function ground() {
   let img = new Image();
   img.src = "./img/dirt.png";
   let pattern = ctx.createPattern(img, "repeat");
   ctx.fillStyle = pattern;
   ctx.fillRect(0, ch - 100, cw, ch);
-}
+}*/
 function cranefunction() {
   ctx.drawImage(loader.loadImage("./img/crane.png"), 50, 0, loader.loadImage("./img/crane.png").width - 220, loader.loadImage("./img/crane.png").height - 220);
 }
