@@ -153,7 +153,7 @@ function count()
 	setTimeout("count()", 1000);
 }
 function table(){
-  ctx.drawImage((loader.loadImage("./img/background.png"), 0, 0, cw, ch);
+  ctx.drawImage(loader.loadImage("./img/background.png"), 0, 0, cw, ch);
 }
 
 /*function ground() {
