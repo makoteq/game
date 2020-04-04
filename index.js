@@ -110,7 +110,7 @@ function click() {
   } else {
     money++;
     framefraction++;
-	if (framefraction==3) {frame++; framefraction=0;}
+	if (framefraction==2) {frame++; framefraction=0;}
   }
   loader.loadImage(data[instance].img + frame + ".png");
 }
@@ -153,7 +153,7 @@ function count()
     frame++;
     }
 		seconds=0;
-		b.src = data[instance].img+frame+".png";
+    loader.loadImage(data[instance].img+frame+".png");
 	}
 	setTimeout("count()", 1000);
 }
