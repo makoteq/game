@@ -3,7 +3,7 @@ body {
   cursor: default;
   margin: 0;
   background-size: cover;
-  background-image: url("img/main.jpg"); /*image from www.subtlepatterns.com  by Federica Pelzel*/
+  background-image: url("img/main.jpg"); 
 }
 h2 {
   color: #fff;
