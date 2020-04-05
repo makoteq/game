@@ -262,6 +262,7 @@ function update(arg) {
           }, 1000);
           interval++;
         }
+		sound(2);
       }
       break;
 
@@ -282,6 +283,7 @@ function update(arg) {
           }, 1000);
           interval++;
         }
+		sound(2);
       }
       break;
     case 3:
@@ -291,6 +293,7 @@ function update(arg) {
         money = money - clicker.prize;
         clicker.prize = clicker.prize * 3;
         clicker.count++;
+		sound(2);
       }
       break;
     case 4:
@@ -302,6 +305,7 @@ function update(arg) {
         score();
         priest.prize = priest.prize * 4;
         priest.count++;
+		sound(2);
       }
       break;
   }
