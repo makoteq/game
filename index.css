@@ -1,12 +1,57 @@
 body {
   font-family: Helvetica;
   cursor: default;
-  margin: 0;
+  margin: 0 !important;
+  paddnig: 0 !important;
+  background-image: url("img/main.jpg");
   background-size: cover;
-  background-image: url("img/main.jpg"); /*image from www.subtlepatterns.com  by Federica Pelzel*/
+  opacity: 0.9;
 }
-h2 {
-  color: #fff;
+h2 > a {
+  display: block;
+  color: #ff0000;
   font-family: "Press Start 2P", cursive;
-  font-size: 3em;
+  position: relative;
+  right: 0px;
+  top: 20vh;  
+}
+h2 > a:hover
+{
+	color: #ff0000;
+}
+h3
+{
+  color: #ff0000;
+  font-family: "Press Start 2P", cursive;
+  font-size: 20px;
+}
+.main
+{
+	text-align: center;
+	margin: 0 !important;
+	padding: 0 !important;
+	position: absolute;
+}
+img.logo
+{
+	margin: 0 !important;
+	padding: 0 !important;
+	width: 120%;
+}
+figcaption
+{
+	font-size: 2em;
+	font-family: "Press Start 2P", cursive;
+	margin-left: 20px;
+}
+.part
+{
+	display: inline-block;
+	min-height: 50px;
+}
+.down
+{
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
 }

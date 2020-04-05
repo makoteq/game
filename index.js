@@ -13,7 +13,7 @@ let worker = {
 };
 let builder = {
   count: 0,
-  prize: 2,
+  prize: 32,
 };
 let clicker = {
   count: 0,
@@ -27,7 +27,7 @@ let history = [];
 let money = 0;
 let frame = 1;
 let framefraction = 1;
-let seconds = "0";
+let seconds = 0;
 let data = [
   {
     name: "Blok pierwszy",
@@ -195,7 +195,7 @@ function score() {
   ctx.fillText(priest.count, cw / 2 + 210, ch - 55);
 }
 function click() {
-  sound(2);
+  sound(1);
   console.log(instance);
   if (data[instance].frames == frame) {
     if (data[instance].legendary == 1) {
@@ -224,7 +224,7 @@ function click() {
 function update(arg) {
   switch (arg) {
     case 1:
-      if (money < worker.prize) {
+      if (money < worker.prize) { sound(3);
         break;
       } else {
         money = money - worker.prize;
@@ -236,11 +236,12 @@ function update(arg) {
           }, 1000);
           interval++;
         }
+		sound(2);
       }
       break;
 
     case 2:
-      if (money < builder.prize) {
+      if (money < builder.prize) { sound(3);
         break;
       } else {
         money = money - builder.prize;
@@ -256,19 +257,21 @@ function update(arg) {
           }, 1000);
           interval++;
         }
+		sound(2);
       }
       break;
     case 3:
-      if (money < clicker.prize) {
+      if (money < clicker.prize) {sound(3);
         break;
       } else {
         money = money - clicker.prize;
         clicker.prize = clicker.prize * 3;
         clicker.count++;
-      }
+		sound(2);
+	  }
       break;
     case 4:
-      if (money < priest.prize) {
+      if (money < priest.prize) {sound(3);
         break;
       } else {
         money = money - priest.prize;
@@ -276,6 +279,7 @@ function update(arg) {
         score();
         priest.prize = priest.prize * 4;
         priest.count++;
+		sound(2);
       }
       break;
   }
@@ -315,12 +319,16 @@ function build(width, height) {
 function sound(type) {
   switch (type) {
     case 1:
-      document.getElementById("myAudio").currentTime = 0;
-      document.getElementById("myAudio").play();
+      document.getElementById("clickAudio").currentTime = 0;
+      document.getElementById("clickAudio").play();
       break;
     case 2:
       document.getElementById("btnAudio").currentTime = 0;
       document.getElementById("btnAudio").play();
+      break;
+	 case 3:
+      document.getElementById("failAudio").currentTime = 0;
+      document.getElementById("failAudio").play();
       break;
   }
 }

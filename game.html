@@ -13,11 +13,11 @@
 </head>
 
 <body id="body">
-	    <audio id="myAudio"">
-			<source src="./click.mp3" type="audio/mpeg">
-			<source src="./btn.mp3" type="audio/mpeg">
-		  </audio>
+		<a href="index.html"><div id="back"><img src="img/powrot.png" width="75"/></div><a>
+
+	    <audio src="fail.mp3" id="failAudio"></audio>
 		  <audio id="btnAudio" src="btn.mp3"></audio>
+		  <audio id="clickAudio" src="click.mp3"></audio>
 		  <div id="loader">
 			<h2 style="font-size: 3em;color: red;">Loading...</h2>
 			<div class="spinner-grow text-danger " style="width: 5rem; height: 5rem;" role="status">
@@ -28,11 +28,9 @@
 		<div class="row">
 			<div class="col">
 		  <canvas id="canvas">
-			<p>Your browser does not support the required functionality to play this game.</p>
-			<p>Please update to a modern browser such as <a href="www.google.com/chrome/‎">Google Chrome</a> to play.</p>
 		  </canvas>
 		  <div id="history" style="border-radius:30px;width: 500px;height:360px; margin:0 auto;margin-top:10px;background-color: #fff;">
-			<h4 style="margin:25px;font-weight:700">Budynki:</h4>
+			<h4 style="margin:25px;font-weight:700">Opis budynków:</h4>
 		  </div>
 			</div>
 			<div class="col">
