@@ -220,7 +220,7 @@ function click() {
   sound(1);
   console.log(instance);
   if (data[instance].frames == frame) {
-    if (data[instance].legendary == 1&&data[instance].legendary==0) {
+    if (data[instance].legendary == 1&&data[instance].active==0) {
       history.push(data[instance]);
       history.forEach((element) => {
         document.getElementById("history").innerHTML =
