@@ -164,7 +164,7 @@ function showPage() {
 }
 let loader = {
   loadedCount: 0,
-  totalCount: 408,
+  totalCount: 413,
   loadImage: (url) => {
     loader.loadedCount++;
     let img = new Image(); // Create new img element
@@ -185,33 +185,29 @@ let loader = {
 loader.loadImage(data[instance].img + frame + ".png");
 loader.loadImage("./img/crane.png");
 function score() {
-  let moneyimg = new Image();
-  moneyimg.src = "./img/moneta.png";
-  ctx.drawImage(moneyimg, cw / 3 - 150, ch - 80, 30, 30);
+	
+  ctx.drawImage(loader.loadImage("./img/moneta.png"), cw / 3 - 150, ch - 80, 30, 30);
   ctx.fillStyle = "#fcd600";
   ctx.font = "30px Helvetica";
   ctx.fillText(money, cw / 2 - 190, ch - 55);
-  let workerimg = new Image();
-  workerimg.src = "./img/fachowiec1.png";
-  ctx.drawImage(workerimg, cw / 3 - 50, ch - 80, 30, 30);
+  
+  ctx.drawImage(loader.loadImage("./img/fachowiec1.png"), cw / 3 - 50, ch - 80, 30, 30);
   ctx.fillStyle = "white";
   ctx.font = "30px Helvetica";
   ctx.fillText(worker.count, cw / 2 - 90, ch - 55);
-  let builderimg = new Image();
-  builderimg.src = "./img/fachowiec2.png";
-  ctx.drawImage(builderimg, cw / 3 + 50, ch - 80, 30, 30);
+  
+
+  ctx.drawImage(loader.loadImage("./img/fachowiec2.png"), cw / 3 + 50, ch - 80, 30, 30);
   ctx.fillStyle = "white";
   ctx.font = "30px Helvetica";
   ctx.fillText(builder.count, cw / 2 + 10, ch - 55);
-  let clickerimg = new Image();
-  clickerimg.src = "./img/Chydaulik3.png";
-  ctx.drawImage(clickerimg, cw / 3 + 150, ch - 80, 30, 30);
+  
+  ctx.drawImage(loader.loadImage("./img/Chydaulik3.png"), cw / 3 + 150, ch - 80, 30, 30);
   ctx.fillStyle = "white";
   ctx.font = "30px Helvetica";
   ctx.fillText(clicker.count, cw / 2 + 110, ch - 55);
-  let priestimg = new Image();
-  priestimg.src = "img/Duchowny1.png";
-  ctx.drawImage(priestimg, cw / 3 + 250, ch - 80, 30, 30);
+  
+  ctx.drawImage(loader.loadImage("./img/Duchowny1.png"), cw / 3 + 250, ch - 80, 30, 30);
   ctx.fillStyle = "white";
   ctx.font = "30px Helvetica";
   ctx.fillText(priest.count, cw / 2 + 210, ch - 55);
