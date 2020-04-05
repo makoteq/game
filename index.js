@@ -309,14 +309,6 @@ function update(arg) {
 function table() {
   ctx.drawImage(loader.loadImage("./img/background.png"), 0, 0, cw, ch);
 }
-
-/*function ground() {
-  let img = new Image();
-  img.src = "./img/dirt.png";
-  let pattern = ctx.createPattern(img, "repeat");
-  ctx.fillStyle = pattern;
-  ctx.fillRect(0, ch - 100, cw, ch);
-}*/
 function cranefunction() {
   ctx.drawImage(
     loader.loadImage("./img/crane.png"),
