@@ -87,6 +87,7 @@ Kościół został konsekrowany 29 września 1901 – w dniu patronalnym św. Mi
     width: "264",
     height: "384",
     frames: "51",
+    active:"0"
   },
   {
     name: "Pałac Jana 3 Sobieskiego",
@@ -97,6 +98,7 @@ Kościół został konsekrowany 29 września 1901 – w dniu patronalnym św. Mi
     width: "380",
     height: "142",
     frames: "33",
+    active:"0"
   },
   {
     name: "Pałac kultury",
@@ -107,6 +109,7 @@ Kościół został konsekrowany 29 września 1901 – w dniu patronalnym św. Mi
     width: "392",
     height: "504",
     frames: "63",
+    active:"0"
   },
   {
     name: "Zamek Królewski",
@@ -121,6 +124,7 @@ W 1980 Zamek Królewski wraz ze Starym Miastem został wpisany na listę świato
     width: "368",
     height: "260",
     frames: "65",
+    active:"0"
   },
   {
     name: "Pałac Łazienkowski",
@@ -135,6 +139,7 @@ Stanisław August przekształcił Pałac na Wyspie w willę muzeum, w której ek
     width: "320",
     height: "132",
     frames: "33",
+    active:"0"
   },
 ];
 let instance = Math.floor(Math.random() * data.length);
@@ -215,7 +220,7 @@ function click() {
   sound(1);
   console.log(instance);
   if (data[instance].frames == frame) {
-    if (data[instance].legendary == 1) {
+    if (data[instance].legendary == 1&&data[instance].legendary==0) {
       history.push(data[instance]);
       history.forEach((element) => {
         document.getElementById("history").innerHTML =
@@ -300,9 +305,6 @@ function update(arg) {
       }
       break;
   }
-}
-function count() {
-  frame++;
 }
 function table() {
   ctx.drawImage(loader.loadImage("./img/background.png"), 0, 0, cw, ch);
