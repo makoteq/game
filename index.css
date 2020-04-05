@@ -1,0 +1,12 @@
+body {
+  font-family: Helvetica;
+  cursor: default;
+  margin: 0;
+  background-size: cover;
+  background-image: url("img/main.jpg"); /*image from www.subtlepatterns.com  by Federica Pelzel*/
+}
+h2 {
+  color: #fff;
+  font-family: "Press Start 2P", cursive;
+  font-size: 3em;
+}
