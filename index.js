@@ -230,20 +230,25 @@ function click() {
     if (data[instance].legendary == 1&&data[instance].active==0) {
       data[instance].active=1;
       history.push(data[instance]);
-      history.forEach((element) => {
-        element.node.setAttribute("data-toggle", "modal");
-        element.node.setAttribute("data-target", "#description");
-        element.node.setAttribute("width", "100");
-        element.node.setAttribute("src", ""+element.img+""+element.frames+".png");
-        element.node.onclick=showdata(''+element.name+'',''+element.description+'');
-        element.node.style.cursor="pointer";
-        element.node.style.margin="8px";
-        document.getElementById("history").appendChild(element.node);
+      console.log(history);
+      console.log(history.map(element => 
+        '<img src="' +
+        element.img +
+        element.frames +
+        '.png" data-toggle="modal" onclick="showdata(`'+element.name+'`,`'+element.description+'`)"   data-target="#description" width=100  style="cursor:pointer;margin:8px" alt="">'
+      ).join(''))
+document.getElementById('history').appendChild = history.map(element => 
+  '<img src="' +
+  element.img +
+  element.frames +
+  '.png" data-toggle="modal" onclick="showdata(`'+element.name+'`,`'+element.description+'`)"   data-target="#description" width=100  style="cursor:pointer;margin:8px" alt="">'
+).join('')
+
      /*   '<img src="' +
         element.img +
         element.frames +
         '.png" data-toggle="modal" onclick="showdata(`'+element.name+'`,`'+element.description+'`)"   data-target="#description" width=100  style="cursor:pointer;margin:8px" alt="">'
-      */});
+      */
     }
     frame = 1;
     instance = Math.floor(Math.random() * data.length);
