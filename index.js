@@ -191,13 +191,13 @@ function score() {
   ctx.font = "30px Helvetica";
   ctx.fillText(money, cw / 2 - 190, ch - 55);
   
-  ctx.drawImage(loader.loadImage("./img/fachowiec1.png"), cw / 3 - 50, ch - 80, 30, 30);
+  ctx.drawImage(loader.loadImage("./img/fachowiec2.png"), cw / 3 - 50, ch - 80, 30, 30);
   ctx.fillStyle = "white";
   ctx.font = "30px Helvetica";
   ctx.fillText(worker.count, cw / 2 - 90, ch - 55);
   
 
-  ctx.drawImage(loader.loadImage("./img/fachowiec2.png"), cw / 3 + 50, ch - 80, 30, 30);
+  ctx.drawImage(loader.loadImage("./img/fachowiec1.png"), cw / 3 + 50, ch - 80, 30, 30);
   ctx.fillStyle = "white";
   ctx.font = "30px Helvetica";
   ctx.fillText(builder.count, cw / 2 + 10, ch - 55);
@@ -269,16 +269,8 @@ function update(arg) {
         money = money - builder.prize;
         builder.prize = builder.prize * 2;
         builder.count++;
-        if (interval != 1) {
-          setInterval(() => {
-            if (frame == data[instance].frames) {
-              instance = Math.floor(Math.random() * data.length);
-              frame = 0;
-            }
-            frame = frame + builder.count;
-          }, 1000);
-          interval++;
-        }
+		score();
+        if (builder.count=1) {counter();}
 		sound(2);
       }
       break;
@@ -306,6 +298,19 @@ function update(arg) {
       break;
   }
 }
+function counter()
+{
+	if(seconds==8)
+	{
+		frame=frame+builder.count;
+		console.log(frame);
+		seconds=0;
+	}
+	else seconds++;
+	setTimeout("counter()", 1000);
+}
+
+
 function table() {
   ctx.drawImage(loader.loadImage("./img/background.png"), 0, 0, cw, ch);
 }
