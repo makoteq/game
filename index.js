@@ -36,6 +36,7 @@ let data = [
     legendary: "0",
     width: "256",
     height: "256",
+    node :  document.createElement("img"),
     frames: "32",
   },
   {
@@ -45,6 +46,7 @@ let data = [
     legendary: "0",
     width: "144",
     height: "256",
+    node :  document.createElement("img"),
     frames: "32",
   },
   {
@@ -54,6 +56,7 @@ let data = [
     legendary: "0",
     width: "144",
     height: "256",
+    node :  document.createElement("img"),
     frames: "32",
   },
   {
@@ -63,6 +66,7 @@ let data = [
     legendary: "0",
     width: "144",
     height: "256",
+    node :  document.createElement("img"),
     frames: "32",
   },
   {
@@ -72,7 +76,9 @@ let data = [
     legendary: "0",
     width: "384",
     height: "264",
+    node :  document.createElement("img"),
     frames: "33",
+    
   },
   {
     name: "Katedra Św. Michała Archanioła",
@@ -87,6 +93,7 @@ Kościół został konsekrowany 29 września 1901 – w dniu patronalnym św. Mi
     width: "264",
     height: "384",
     frames: "51",
+    node :  document.createElement("img"),
     active:"0"
   },
   {
@@ -98,6 +105,7 @@ Kościół został konsekrowany 29 września 1901 – w dniu patronalnym św. Mi
     width: "380",
     height: "142",
     frames: "33",
+    node :  document.createElement("img"),
     active:"0"
   },
   {
@@ -109,6 +117,7 @@ Kościół został konsekrowany 29 września 1901 – w dniu patronalnym św. Mi
     width: "392",
     height: "504",
     frames: "63",
+    node :  document.createElement("img"),
     active:"0"
   },
   {
@@ -124,6 +133,7 @@ W 1980 Zamek Królewski wraz ze Starym Miastem został wpisany na listę świato
     width: "368",
     height: "260",
     frames: "65",
+    node :  document.createElement("img"),
     active:"0"
   },
   {
@@ -139,6 +149,7 @@ Stanisław August przekształcił Pałac na Wyspie w willę muzeum, w której ek
     width: "320",
     height: "132",
     frames: "33",
+    node :  document.createElement("img"),
     active:"0"
   },
 ];
@@ -149,6 +160,15 @@ document.getElementById("canvas").addEventListener("click", () => {
 });
 setInterval(game, 1000 / 60);
 window.onload = () => {
+  const node =  document.createElement("img");
+  node.setAttribute("data-toggle", "modal");
+  node.setAttribute("data-target", "#description");
+  node.setAttribute("width", "100");
+  node.setAttribute("src", "./img/PalacKr/PK30.png");
+  node.onclick=showdata('jj','fffff');
+  node.style.cursor="pointer";
+  node.style.margin="8px";
+  document.getElementById("history").appendChild(node);
   for (let i = 0; i < data.length; i++) {
     for (let x = 1; x < data[i].frames; x++) {
       loader.loadImage(data[i].img + x + ".png");
@@ -220,13 +240,19 @@ function click() {
       data[instance].active=1;
       history.push(data[instance]);
       history.forEach((element) => {
-        document.getElementById("history").innerHTML =
-        document.getElementById("history").innerHTML +
-        '<img src="' +
+        element.node.setAttribute("data-toggle", "modal");
+        element.node.setAttribute("data-target", "#description");
+        element.node.setAttribute("width", "100");
+        element.node.setAttribute("src", ""+element.img+""+element.frames+".png");
+        element.node.onclick=showdata(''+element.name+'',''+element.description+'');
+        element.node.style.cursor="pointer";
+        element.node.style.margin="8px";
+        document.getElementById("history").appendChild(element.node);
+     /*   '<img src="' +
         element.img +
         element.frames +
         '.png" data-toggle="modal" onclick="showdata(`'+element.name+'`,`'+element.description+'`)"   data-target="#description" width=100  style="cursor:pointer;margin:8px" alt="">'
-      });
+      */});
     }
     frame = 1;
     instance = Math.floor(Math.random() * data.length);
@@ -273,11 +299,11 @@ function update(arg) {
         if (interval != 1) {
           setInterval(() => {
             if (frame == data[instance].frames) {
+              frame = 1;
               instance = Math.floor(Math.random() * data.length);
-              frame = 0;
             }
             frame = frame + builder.count;
-          }, 8000);
+          }, 5000);
           interval++;
         }
 		sound(2);
