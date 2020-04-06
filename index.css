@@ -1,5 +1,6 @@
 body {
-  font-family: Helvetica;
+  font-family: 'Anonymous Pro', monospace;
+  font-weight: 700;
   cursor: default;
   margin: 0 !important;
   padding: 0 !important;
@@ -7,23 +8,34 @@ body {
   background-size: cover;
   opacity: 0.9;
 }
-h2 > a {
+h2 > a:active, h2 > a:visited, h2 > a:link {
   display: block;
   color: #ff0000;
-  font-family: "Press Start 2P", cursive;
   position: relative;
   right: 0px;
-  top: 20vh;  
-}
-h2 > a:hover
-{
-	color: #ff0000;
+  top: 15vh;
+  font-size: 2.5em;
+  text-decoration: underline;
 }
 h3
 {
   color: #ff0000;
-  font-family: "Press Start 2P", cursive;
-  font-size: 20px;
+  font-size: 30px;
+}
+a:link
+{
+	text-decoration: none;
+}a:visited
+{
+	text-decoration: none;
+}
+a:active
+{
+	text-decoration: none;
+}
+a:hover
+{
+	text-decoration: none;
 }
 .main
 {
@@ -31,17 +43,25 @@ h3
 	margin: 0 !important;
 	padding: 0 !important;
 	position: absolute;
+	display: inline-block;
 }
 img.logo
 {
-	margin: 0 !important;
-	padding: 0 !important;
+	margin: 0;
+	padding: 0;
 	width: 120%;
+}
+img.imgi
+{
+	width: 110px;
+}
+figure
+{
+	text-align: center;
 }
 figcaption
 {
-	font-size: 2em;
-	font-family: "Press Start 2P", cursive;
+	font-size: 3em;
 	margin-left: 20px;
 }
 .part
@@ -49,9 +69,66 @@ figcaption
 	display: inline-block;
 	min-height: 50px;
 }
+.part1
+{
+	display: inline-block;
+}
 .down
 {
 	position: fixed;
 	bottom: 0px;
 	left: 0px;
+}
+
+/* na mobilkach */
+
+@media only screen and (max-width: 980px){
+	
+	figure
+	{
+	margin: 0;
+	padding: 0;
+	}
+	img.logo
+	{
+		width: 80%;
+	}
+@media only screen and (max-width: 750px) {
+	
+	#body
+	{
+		font-size: 10px !important;
+	}
+	img.imgi
+	{
+		width: 70px;
+	}
+	.part1
+	{
+		display: none;
+	}
+	.part2
+	{
+		display: none;
+	}
+	}
+	figcaption
+	{
+		font-size: 2.5em;
+	}
+}
+
+@media only screen and (max-width: 460px) {
+	#body
+	{
+		font-size: 5px !important;
+	}
+	h3
+	{
+		font-size: 20px;
+	}
+	h2 > a
+	{
+		2em;
+	}
 }
