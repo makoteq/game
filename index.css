@@ -122,6 +122,11 @@ figcaption
 	#body
 	{
 		font-size: 5px !important;
+		background-image: url("img/back.png");
+	}
+	figcaption
+	{
+		color: #ccc;
 	}
 	h3
 	{
