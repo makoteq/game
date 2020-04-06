@@ -80,7 +80,7 @@ figcaption
 	left: 0px;
 }
 
-/* na mobilkach */
+/* na mobilkach i innych*/
 
 @media only screen and (max-width: 980px){
 	
@@ -122,6 +122,11 @@ figcaption
 	#body
 	{
 		font-size: 5px !important;
+		background-image: url("img/back.png");
+	}
+	figcaption
+	{
+		color: #ccc;
 	}
 	h3
 	{
@@ -129,6 +134,23 @@ figcaption
 	}
 	h2 > a
 	{
-		2em;
+		font-size: 2em;
 	}
 }
+
+@media only screen and (max-height: 800px)
+{
+	img.imgi
+	{
+		width: 70px;
+	}
+}
+@media only screen and (max-height: 700px)
+{
+	h2 > a:active, h2 > a:link, h2 > a:visited, h2 > a:hover
+	{
+		font-size: 2em;
+		top: 5vh;
+	}
+}
+	
