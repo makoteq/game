@@ -205,13 +205,13 @@ function score() {
   ctx.drawImage(loader.loadImage("./img/fachowiec2.png"), cw / 3 - 50, ch - 80, 30, 30);
   ctx.fillStyle = "white";
   ctx.font = "30px Helvetica";
-  ctx.fillText(builder.count, cw / 2 - 90, ch - 55);
+  ctx.fillText(worker.count, cw / 2 - 90, ch - 55);
   
 
   ctx.drawImage(loader.loadImage("./img/fachowiec1.png"), cw / 3 + 50, ch - 80, 30, 30);
   ctx.fillStyle = "white";
   ctx.font = "30px Helvetica";
-  ctx.fillText(worker.count, cw / 2 + 10, ch - 55);
+  ctx.fillText(builder.count, cw / 2 + 10, ch - 55);
   
   ctx.drawImage(loader.loadImage("./img/Chydaulik3.png"), cw / 3 + 150, ch - 80, 30, 30);
   ctx.fillStyle = "white";
