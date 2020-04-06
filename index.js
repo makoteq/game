@@ -160,15 +160,6 @@ document.getElementById("canvas").addEventListener("click", () => {
 });
 setInterval(game, 1000 / 60);
 window.onload = () => {
-  const node =  document.createElement("img");
-  node.setAttribute("data-toggle", "modal");
-  node.setAttribute("data-target", "#description");
-  node.setAttribute("width", "100");
-  node.setAttribute("src", "./img/PalacKr/PK30.png");
-  node.onclick=showdata('jj','fffff');
-  node.style.cursor="pointer";
-  node.style.margin="8px";
-  document.getElementById("history").appendChild(node);
   for (let i = 0; i < data.length; i++) {
     for (let x = 1; x < data[i].frames; x++) {
       loader.loadImage(data[i].img + x + ".png");
